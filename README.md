@@ -65,8 +65,8 @@ docker run --rm -it --privileged -p 2210:2210 -p 9999:9999 flexran:snap
 - I chose to give the full privileges to the container. You could argue only some of the capabilities are necessary to the proper working of flexran. If you checked the right capabilities, please report I would update accordingly (thanks in advance).
 - Now that it is proven to work, one could go to optimize the path structure by removing everything snap related, as only the bin directory plus the logging (and other, which ?) are used. If someone could look it up in an iterative kind of approach and cleans up the docker image, I am interested.
 - This is how I would see this rebuild happening in a ci/cd fashion with no fuss (maybe if I have time :-) ):
- - Use the Ubuntu 16.04 VM as privileged user with travis-ci 
- - Write your travis-ci.yml to start the VM, download the flexran-snap in the wanted version
- - Change path to the Dockerfile, rebuild the docker image, tag accordingly to the version, and push to the hub. 
+    - Use the Ubuntu 16.04 VM as privileged user with travis-ci 
+    - Write your travis-ci.yml to start the VM, download the flexran-snap in the wanted version
+    - Change path to the Dockerfile, rebuild the docker image, tag accordingly to the version, and push to the hub. 
 
 In my opinion, this is the cleanest way to automate the snap-to-docker work if you use this way. Otherwise, I suggest the transition from code to Docker given the sources. Such as illustrated in [my repo for the enodeB](https://github.com/sofianinho/docker-openairinterface-enb/blob/master/Dockerfile)
